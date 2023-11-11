@@ -121,6 +121,64 @@ public class Fibonacci extends AppCompatActivity {
 ```
 ![image](https://github.com/Aliyahasmarani/Project_Mobile_Fibonacci/assets/115197672/292cabaa-02a1-4b10-a526-2cf5aa931551)
 
+## PENJELASAN :
+
+### 1. Package dan Import:
+```
+package com.example.myapplication;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+```
+Ini adalah bagian awal dari kode dan mendefinisikan paket (package) serta import library yang dibutuhkan.
+
+### 2. Deklarasi Variabel:
+```
+public class Fibonacci extends AppCompatActivity {
+    int first = 0;
+    int second = 1;
+    TextView Fibonacci;
+```
+Di sini, kita mendeklarasikan kelas Fibonacci yang merupakan turunan dari AppCompatActivity. Kedua variabel first dan second adalah dua angka pertama dalam deret Fibonacci, dan TextView Fibonacci adalah elemen tampilan untuk menampilkan angka-angka tersebut di layar.
+
+### 3. Metode onCreate:
+```
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_fibonnaci);
+
+    Fibonacci = findViewById(R.id.show_count);
+    updateFibonacciText();
+```
+Metode ini dipanggil ketika aktivitas (activity) dibuat. Di sini, kita mengatur tata letak (layout) aktivitas dari file XML (activity_fibonnaci.xml) dan menginisialisasi elemen tampilan Fibonacci. Kemudian, kita memanggil updateFibonacciText untuk menampilkan nilai awal.
+
+### 4. Metode showToast:
+```
+public void showToast(View view) {
+    Toast.makeText(this, "Fibonacci", Toast.LENGTH_SHORT).show();
+```
+Metode ini menampilkan pesan singkat (toast) dengan teks "Fibonacci" ketika metode ini dipanggil.
+
+### 5. Metode countUp:
+```
+public void countUp(View view) {
+    int next = first + second;
+    first = second;
+    second = next;
+    updateFibonacciText();
+```
+Metode ini dijalankan ketika tombol di layar ditekan. Ini menghitung nilai berikutnya dalam deret Fibonacci, mengupdate nilai first dan second, dan kemudian memanggil updateFibonacciText untuk menampilkan nilai terbaru di layar.
+
+### 6. Metode updateFibonacciText:
+```
+private void updateFibonacciText() {
+    Fibonacci.setText(Integer.toString(first));
+```
+Metode ini mengatur teks pada elemen tampilan Fibonacci dengan nilai terbaru dari first dalam bentuk teks.
+
 ## HASIL DARI CODE ACTIVITY DI ATAS:
 
 ![image](https://github.com/Aliyahasmarani/Project_Mobile_Fibonacci/assets/115197672/48e7610a-54d2-42e8-ac8b-40b52a0fe64b)
@@ -323,7 +381,87 @@ public class Fibonacci extends AppCompatActivity {
 ```
 ![image](https://github.com/Aliyahasmarani/Project_Mobile_Fibonacci/assets/115197672/5463b2f8-3890-483b-b5fb-4f19209c0138)
 
-## Hasil dari code diatas:
+## PENJELASAN
+
+### 1. Variabel:
+```
+private TextView showCount;
+private int count = 0;
+private long fibNMinus1 = 0;
+private long fibNMinus2 = 1;
+private EditText edit_max_fibonacci;
+```
+
+-> showCount: Menunjukkan angka deret Fibonacci saat ini di layar.<br>
+-> count: Menghitung berapa banyak langkah telah diambil dalam deret Fibonacci.<br>
+-> fibNMinus1 dan fibNMinus2: Menyimpan dua angka sebelumnya dalam deret Fibonacci.<br>
+-> edit_max_fibonacci: Digunakan untuk mengatur nilai maksimum yang ingin ditampilkan.<br>
+
+### 2. Metode onCreate:
+```
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_fibonnaci);
+
+    showCount = findViewById(R.id.show_count);
+    edit_max_fibonacci = findViewById(R.id.edit_max_fibonacci);
+
+    updateCountDisplay();
+
+    fibNMinus1 = 0;
+    fibNMinus2 = 1;
+}
+```
+-> Dipanggil saat aplikasi dimulai.<br>
+-> Menyiapkan tampilan dan nilai awal deret Fibonacci.<br>
+-> Memanggil metode updateCountDisplay untuk menampilkan nilai awal.<br>
+
+### 3. Metode updateCountDisplay:
+```
+private void updateCountDisplay() {
+    showCount.setText(String.valueOf(fibNMinus1));
+
+    // Mengubah warna teks berdasarkan sisa bagi dari 'count'.
+    // Memberikan efek warna yang berbeda setiap 4 langkah dalam deret Fibonacci.
+}
+```
+-> Memperbarui tampilan dengan nilai terbaru dari deret Fibonacci.<br>
+-> Mengganti warna teks berdasarkan pola tertentu.<br>
+
+### 4. Metode showToast:
+```
+public void showToast(View view){
+    Toast.makeText(this, "Bilangan Fibonacci", Toast.LENGTH_SHORT).show();
+}
+```
+-> Menampilkan pesan singkat (Toast) ketika tombol tertentu ditekan.
+
+### 5. Metode countUp:
+```
+public void countUp(View view) {
+    // Mengambil nilai maksimum yang diinginkan.
+    // Memeriksa apakah sudah mencapai nilai maksimum.
+    // Menghitung dan menampilkan nilai berikutnya dalam deret Fibonacci.
+}
+```
+-> Dipanggil ketika tombol "Hitung" ditekan.<br>
+-> Mengambil nilai maksimum yang diinginkan.<br>
+-> Memeriksa apakah sudah mencapai nilai maksimum.<br>
+-> Menghitung dan menampilkan nilai berikutnya dalam deret Fibonacci.<br>
+
+### 6. Metode back1:
+```
+public void back1(View view) {
+    // Mereset variabel-variabel untuk mengembalikan deret Fibonacci ke awal.
+    // Memanggil metode updateCountDisplay untuk menampilkan nilai awal.
+}
+```
+-> Dipanggil ketika tombol "Kembali" ditekan.<br>
+-> Mereset variabel-variabel untuk mengembalikan deret Fibonacci ke awal.<br>
+-> Memanggil metode updateCountDisplay untuk menampilkan nilai awal deret Fibonacci.<br>
+
+## HASIL DARI CODE ACTIVITY DI ATAS:
 
 ![image](https://github.com/Aliyahasmarani/Project_Mobile_Fibonacci/assets/115197672/0573436f-d8a5-4732-9d87-bd90850283b7)
 
