@@ -477,5 +477,7 @@ public void back1(View view) {
 
 ![image](https://github.com/Aliyahasmarani/Project_Mobile_Fibonacci/assets/115197672/7b95a7c8-91ef-42d8-bbe8-23c14d7f593f)
 
+Ketika sudah mencapai permintaan maximumnya, akan muncul tulisan diatas. 
+
 
 
