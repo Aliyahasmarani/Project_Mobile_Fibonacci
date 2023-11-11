@@ -1,8 +1,9 @@
 # Project_Mobile_Fibonacci
 
+
+![image](https://github.com/Aliyahasmarani/Project_Mobile_Fibonacci/assets/115197672/4944c6e8-7d43-463c-867a-4405eae296b5)
+
 # Tugas Pertama 
-
-
 
 # 1. Pertama, Buatlah code pada layout (.xml) yang berisikan sbb:
 
