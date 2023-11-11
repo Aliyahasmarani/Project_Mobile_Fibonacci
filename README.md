@@ -119,7 +119,7 @@ public class Fibonacci extends AppCompatActivity {
     }
 }
 ```
-![image](https://github.com/Aliyahasmarani/Project_Mobile_Fibonacci/assets/115197672/06f7e2ec-9c4c-4ed5-8512-6c51d12de608)
+![image](https://github.com/Aliyahasmarani/Project_Mobile_Fibonacci/assets/115197672/292cabaa-02a1-4b10-a526-2cf5aa931551)
 
 ## HASIL DARI CODE ACTIVITY DI ATAS:
 
@@ -139,7 +139,7 @@ public class Fibonacci extends AppCompatActivity {
 
 # Tugas 2
 
-# 1. Tugasnya masih sama, hanya sajah ada sedikit perubahannya sebagai berikut:
+# 1. Tugasnya masih sama, hanya sajah ada sedikit perubahan yaitu sebagai berikut:
 
 ## Berikut perubahannya: Buat code pada layout (.xml)
 
@@ -224,6 +224,7 @@ public class Fibonacci extends AppCompatActivity {
         android:gravity="center_vertical"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
+        android:text="0"
         android:textSize="160sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/button_count"
@@ -233,11 +234,96 @@ public class Fibonacci extends AppCompatActivity {
         tools:ignore="RtlCompat" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-![image](https://github.com/Aliyahasmarani/Project_Mobile_Fibonacci/assets/115197672/a43fac5f-0fdc-483c-b335-13b3c0235df0)
+![image](https://github.com/Aliyahasmarani/Project_Mobile_Fibonacci/assets/115197672/df5f8dc9-911e-4728-b030-14079e7d8b7f)
+
+## Berikut perubahannya: Buat code pada (Java)
+
+```
+package com.example.myapplication;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Fibonacci extends AppCompatActivity {
+    private TextView showCount;
+    private int count = 0;
+    private long fibNMinus1 = 0;
+    private long fibNMinus2 = 1;
+    private EditText edit_max_fibonacci;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_fibonnaci);
+
+        showCount = findViewById(R.id.show_count);
+        edit_max_fibonacci = findViewById(R.id.edit_max_fibonacci);
+
+        updateCountDisplay();
+
+        fibNMinus1 = 0;
+        fibNMinus2 = 1;
+    }
+
+    private void updateCountDisplay() {
+        showCount.setText(String.valueOf(fibNMinus1));
+
+        if (count % 4 == 0) {
+            showCount.setTextColor(getResources().getColor(R.color.hijau));
+        } else if (count % 4 == 1) {
+            showCount.setTextColor(getResources().getColor(R.color.black));
+        } else if (count % 4 == 2) {
+            showCount.setTextColor(getResources().getColor(R.color.Navy));
+        } else if (count % 4 == 3) {
+            showCount.setTextColor(getResources().getColor(R.color.pink));
+        } else {
+            showCount.setTextColor(getResources().getColor(R.color.hijau));
+        }
+    }
+
+    public void showToast(View view){
+        Toast.makeText(this, "Bilangan Fibonacci",
+                Toast.LENGTH_SHORT).show();
+    }
+
+    public void countUp(View view) {
+        int maxFibonacci = Integer.parseInt(edit_max_fibonacci.getText().toString());
+
+        if (count >= maxFibonacci) {
+            Toast.makeText(this, "Maksimum Fibonacci tercapai", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        long fibCurrent;
+        if (count == 0 || count == 1) {
+            fibCurrent = 1;
+        } else {
+            fibCurrent = fibNMinus1 + fibNMinus2;
+        }
+
+        fibNMinus2 = fibNMinus1;
+        fibNMinus1 = fibCurrent;
+        updateCountDisplay();
+
+        count++;
+    }
+
+    public void back1(View view) {
+        count = 0;
+        fibNMinus1 = 0;
+        fibNMinus2 = 1;
+        updateCountDisplay();
+    }
+}
+```
+![image](https://github.com/Aliyahasmarani/Project_Mobile_Fibonacci/assets/115197672/5463b2f8-3890-483b-b5fb-4f19209c0138)
 
 ## Hasil dari code diatas:
-
-![image](https://github.com/Aliyahasmarani/Project_Mobile_Fibonacci/assets/115197672/f531c9da-fccc-434b-9168-0480f4a7890e)
 
 ![image](https://github.com/Aliyahasmarani/Project_Mobile_Fibonacci/assets/115197672/0573436f-d8a5-4732-9d87-bd90850283b7)
 
